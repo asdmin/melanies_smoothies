@@ -19,6 +19,10 @@ ingredients_list = st.multiselect(
     max_selections=5
 )
 
+import requests
+smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
+st.text(smoothiefroot_response)
+
 ingredients_string = ' '.join(ingredients_list)
 
 insert_statement = "insert into SMOOTHIES.PUBLIC.ORDERS (name_on_order, ingredients) values ('" + name + "', '" + ingredients_string + "')"
